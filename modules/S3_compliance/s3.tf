@@ -148,3 +148,18 @@ resource "aws_s3_bucket_policy" "compliant_policy" {
   bucket = aws_s3_bucket.data_bucket.id
   policy = data.aws_iam_policy_document.compliant_bucket_policy.json
 }
+
+output "data_bucket_arn" {
+  description = "The ARN of the main S3 bucket storing PHI data."
+  value       = aws_s3_bucket.data_bucket.arn
+}
+
+output "data_bucket_id" {
+  description = "The name/ID of the main S3 bucket storing PHI data."
+  value       = aws_s3_bucket.data_bucket.id
+}
+
+output "logging_bucket_id" {
+  description = "The name/ID of the S3 bucket storing access logs."
+  value       = aws_s3_bucket.logging_bucket.id
+}
